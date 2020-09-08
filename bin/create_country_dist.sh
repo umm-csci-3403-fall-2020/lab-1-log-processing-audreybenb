@@ -11,7 +11,7 @@ cd "$given_dir" || exit 1
 
 #catting the failed login files (which we know will be in data/[computer_name]/failed_login_data.txt)
 #and then grabbing the usernames from them and storing the info in a temporary text file
-cat ./* ./*/* | awk '{print $5}' > countries.txt
+cat ./* ./*/*.txt | awk '{print $5}' > countries.txt
 
 #converting IP to country
 sort -o stuff.txt countries.txt  

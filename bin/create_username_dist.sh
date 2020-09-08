@@ -11,7 +11,7 @@ cd "$given_dir" || exit 1
 
 #catting the failed login files (which we know will be in data/[computer_name]/failed_login_data.txt)
 #and then grabbing the usernames from them and storing the info in a temporary text file
-cat ./* ./*/* | awk '{print $4}' > usernames.txt
+cat ./* ./*/*.txt | awk '{print $4}' > usernames.txt
 
 #creating a text file that contains two columns: #occurrences and usernames which we then 
 #format using data.addRow, and store in a temporary text file

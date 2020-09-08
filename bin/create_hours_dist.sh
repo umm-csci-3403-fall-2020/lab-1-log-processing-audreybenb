@@ -10,7 +10,7 @@ top_dir=$(pwd)
 cd "$given_dir" || exit 1
 
 #grab our failed_login_data.txt file in our subdirectories and print out the hours into a temporary text file
-cat ./* ./*/* | awk '{print $3}' > hours.txt
+cat ./* ./*/*.txt | awk '{print $3}' > hours.txt
 
 #add the hours and failed logins into a temporary text file in the form: hours, failed logins
 sort hours.txt | uniq -c | awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' > temp.txt
