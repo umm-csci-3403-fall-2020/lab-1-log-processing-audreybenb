@@ -14,13 +14,13 @@ cd "$given_dir" || exit 1
 cat ./* ./*/* | awk '{print $5}' > countries.txt
 
 #converting IP to country
-sort -o countries.txt countries.txt  
-join -1 1 -2 1 -o 1.1,2.2 countries.txt "$top_dir"/etc/country_IP_map.txt > countries.txt 
+sort -o stuff.txt countries.txt  
+join -j 1 -o 2.2 stuff.txt "$top_dir"/etc/country_IP_map.txt > countries.txt 
 
 sort countries.txt | uniq -c | awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' > temp.txt
 
 #removing temporary text files in $given_dir before changing directories
-rm countries.txt
+rm countries.txt stuff.txt
 
 #need access to html files so we return to top level dir
 cd "$top_dir" || exit
