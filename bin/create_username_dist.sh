@@ -11,7 +11,7 @@ cd "$given_dir" || exit 1
 
 #catting the failed login files (which we know will be in data/[computer_name]/failed_login_data.txt)
 #and then grabbing the usernames from them and storing the info in a temporary text file
-cat ./* ./*/*.txt | awk '{print $4}' > usernames.txt
+cat ./*/*.txt | awk '{print $4}' > usernames.txt
 
 #creating a text file that contains two columns: #occurrences and usernames which we then 
 #format using data.addRow, and store in a temporary text file
@@ -22,9 +22,9 @@ rm usernames.txt
 
 #need access to html files so we return to top level dir
 cd "$top_dir" || exit 
-./bin/wrap_contents.sh ./"$given_dir"/temp.txt html_components/username_dist username_dist.html
-mv username_dist.html ./"$given_dir"
+./bin/wrap_contents.sh "$given_dir"/temp.txt html_components/username_dist username_dist.html
+mv username_dist.html "$given_dir"
 
 #removing temp text
-rm ./"$given_dir"/temp.txt
+rm "$given_dir"/temp.txt
 
