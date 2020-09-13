@@ -6,7 +6,7 @@ top_dir=$(pwd)
 
 cd "$given_dir" || exit 1
 
-cat *.html > "$top_dir"/temp.html
+cat ./*.html > "$top_dir"/temp.html
 
 cd "$top_dir" || exit 1
 
