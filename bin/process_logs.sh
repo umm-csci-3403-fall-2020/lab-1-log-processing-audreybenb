@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 temp_dir=$(mktemp -d)
 top_dir=$(pwd)
